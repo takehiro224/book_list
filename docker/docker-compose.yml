@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web:
+    container_name: book_list_web_container
+    build: 
+      context: ./web
+      dockerfile: Dockerfile
+    environment:
+      TZ: "Asia/Tokyo"
+    ports:
+        - "8088:80"
+    volumes:
+      - type: bind
+        source: ../app
+        target: /var/www/html
+    networks:
+      - book_list_network
+
+networks:
+  book_list_network:
