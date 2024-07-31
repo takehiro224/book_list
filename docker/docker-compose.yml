@@ -45,6 +45,3 @@ networks:
 volumes:
   book_list_db_volume:
     driver: local  
-
-networks:
-  book_list_network:
