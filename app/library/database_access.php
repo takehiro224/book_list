@@ -7,7 +7,7 @@ class DatabaseAccess {
 
     private function __construct() {}
 
-    private static function getInstance(): PDO{
+    private static function getInstance(): PDO {
         if(!isset(self::$pdo)) {
             $dsn = "pgsql:host=book_list_php_db_container;dbname=postgres";
             self::$pdo = new PDO($dsn, "root", "root");
