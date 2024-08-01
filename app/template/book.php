@@ -14,8 +14,9 @@
         </div>
         <div id="main">
             <h3 id="title">書籍一覧画面</h3>
+            <a href="logout.php">ログアウト</a>
             <div>
-                <table border="1">
+                <table class="table_design01">
                     <thead>
                         <tr>
                             <th>タイトル</th>
@@ -26,7 +27,7 @@
                     <tbody>
                         <?php foreach ($data as $row) { ?>
                             <tr>
-                              <td><?php echo $row["title"]; ?></td>
+                              <td><a href=<?php echo "/htdocs/book_detail.php?id=" . $row["id"] ?>><?php echo $row["title"]; ?></a></td>
                               <td><?php echo $row["author"]; ?></td>
                               <td><?php echo $row["publisher_name"]; ?></td>
                             </tr>

@@ -21,4 +21,11 @@ class DatabaseAccess {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public static function fetchBy(string $id){
+        $sql = "SELECT * FROM books WHERE id = :id ORDER BY id";
+        $stmt = self::getInstance()->prepare($sql);
+        $param['id'] = $id;
+        $stmt->execute($param);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
