@@ -28,4 +28,10 @@ class DatabaseAccess {
         $stmt->execute($param);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public static function deleteBy(string $id) {
+        $sql = "DELETE FROM books WHERE id = :id";
+        $stmt = self::getInstance()->prepare($sql);
+        $param['id'] = $id;
+        $stmt->execute($param);
+    }
 }
