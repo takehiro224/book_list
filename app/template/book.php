@@ -25,6 +25,11 @@
                                 <th>タイトル</th>
                                 <th>著者</th>
                                 <th>出版社</th>
+                                <td>
+                                    <form action="/htdocs/form.php" method = "get">
+                                        <button type = "submit">登録</button>
+                                    </form>
+                                </td>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,7 +49,7 @@
             </div>
             <form action="book.php" name="delete_form" method="POST">
                 <input type="hidden" name="id" value="" />
-                <input type="hidden" name="delete" value="" />
+                <input type="hidden" name="delete" value=""  />
             </form>
             
         </body>

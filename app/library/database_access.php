@@ -34,4 +34,18 @@ class DatabaseAccess {
         $param['id'] = $id;
         $stmt->execute($param);
     }
+    
+    public static function insert(string $title, string $isbn, int $price, string $author, string $publisher_name, string $created){
+        $sql = "INSERT INTO books(title, isbn, price, author, publisher_name, created) VALUES (:title, :isbn, :price, :author, :publisher_name, :created )";
+
+         $params['title'] = $title;
+         $params['isbn'] = $isbn;
+         $params['price'] = $price;
+         $params['author'] = $author;
+         $params['publisher_name'] = $publisher_name;
+         $params['created'] = $created;
+        
+        $stmt = self::getInstance()->prepare($sql);
+        return $stmt->execute($params);
+    }
 }
