@@ -12,7 +12,7 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
         $publisher_name = $_POST['publisher_name'] ?? '';
         $created = $_POST['created'] ?? '';
      if(!empty($title) && !empty($isbn) && !empty($price) && !empty($author)){
-        DatabaseAccess::insert($title, $isbn, $price, $author, $publisher_name, $created);
+        DatabaseAccess::insert($title, $isbn, (int)$price, $author, $publisher_name, $created);
         require_once(dirname(__DIR__) . "/htdocs/book.php");
         }
     

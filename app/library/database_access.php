@@ -35,17 +35,36 @@ class DatabaseAccess {
         $stmt->execute($param);
     }
     
-    public static function insert(string $title, string $isbn, int $price, string $author, string $publisher_name, string $created){
-        $sql = "INSERT INTO books(title, isbn, price, author, publisher_name, created) VALUES (:title, :isbn, :price, :author, :publisher_name, :created )";
-
-         $params['title'] = $title;
-         $params['isbn'] = $isbn;
-         $params['price'] = $price;
-         $params['author'] = $author;
-         $params['publisher_name'] = $publisher_name;
-         $params['created'] = $created;
+    public static function insert(string $title, string $isbn, int $price, string $author, ?string $publisher_name, ?string $created): bool {
+        $sql = "INSERT INTO books(title, isbn, price, author";
         
+         $param = [
+            'title' => $title,
+            'isbn' => $isbn,
+            'price' => $price,
+            'author'=> $author,
+         ];
+         if(!empty($publisher_name)) {
+            $sql .= ", publisher_name";
+            $param['publisher_name'] = $publisher_name;   
+         }
+
+         if(!empty($created)) {
+            $sql .= ", created";
+            $param['created'] = $created;   
+         }
+        
+        $sql .=") VALUES (:title, :isbn, :price, :author"; 
+        
+        if(isset($param['publisher_name'])) {
+            $sql .= ", :publisher_name";
+        }
+        
+        if(isset($param['created'])) {
+            $sql .= ", :created";
+        }
+        $sql .= ")";
         $stmt = self::getInstance()->prepare($sql);
-        return $stmt->execute($params);
+        return $stmt->execute($param);
     }
 }
