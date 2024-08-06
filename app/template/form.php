@@ -13,32 +13,32 @@
             </h1>
         </div>
         <div id="main">
-            <h3 id="見出し">登録画面</h3>
+            <h2 id="title">登録画面</h2>
             <form action="form.php" method="post" >
 
-                <label for="title"> タイトル:</label>
-                    <input type="text" name="title" id="title" required>
+                 タイトル:
+                    <input type="text" name="title" required>
                 <br>
 
-                <label for="isbn"> ISBN:</label> 
-                    <input type="text" name="isbn" id="isbn" required>
+                ISBN:
+                    <input type="text" name="isbn" required>
                 <br>    
-                <label for="author"> 著者:</label> 
-                    <input type="text" name="author" id="author" required>
+                著者:
+                    <input type="text" name="author" required>
                 <br>
-                <label for="price"> 価格:</label> 
-                    <input type="text" name="price" id="price" required>
+                価格:
+                    <input type="text" name="price" required>
                 <br>
-                <label for="publisher_name"> 出版社:</label> 
-                    <input type="text" name="publisher_name" id="publisher_name">
+                出版社: 
+                    <input type="text" name="publisher_name">
                 <br>
-                <label for="created"> 発行日:</label> 
-                    <input type="date" name="created" id="created">
+                発行日: 
+                    <input type="datetime-local" name="created">
                 <br>
 
         <input type ="submit" VALUE="登録" class="button">
         <input type ="button" onclick="history.back()" VALUE="戻る">
-        </form>
+        </form> 
         </div>
                 
     </body>
