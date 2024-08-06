@@ -67,4 +67,22 @@ class DatabaseAccess {
         $stmt = self::getInstance()->prepare($sql);
         return $stmt->execute($param);
     }
+
+    public static function update(string $title, string $isbn, int $price, string $author, string $publisher_name, string $created):  {
+        $sql = "UPDATE books SET title = :title,isbn = :isbn,price = :price,author = :author,publisher_name = :publisher_name,created = :created)
+         VALUES (:title, :isbn, :price, :author, :publisher_name, :created) WHERE id = :id;";
+        
+         $param = [
+            'id' => $id;   
+            'title' => $title,
+            'isbn' => $isbn,
+            'price' => $price,
+            'author' => $author,
+            'publisher_name' => $publisher_name,
+            'created' => $created
+         ];
+        
+        $stmt = self::getInstance()->prepare($sql);
+        return $stmt->execute($param);
+    }
 }
