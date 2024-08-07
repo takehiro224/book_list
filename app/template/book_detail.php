@@ -43,7 +43,11 @@
                 </table>
             </div>
             <div>
-                <input type="button" value="戻る" onclick="location.href='book.php'; return false;">
+                <form action="/htdocs/edit.php" method="post" name="detail">
+                    <input type="hidden" name="detail" value="<?php echo htmlspecialchars(json_encode($data), ENT_QUOTES, 'UTF-8'); ?>">
+                    <button type="submit">更新</button>
+                    <input type="button" value="戻る" onclick="location.href='book.php'; return false;">
+                </form>
             </div>
         </div>
     </body>
