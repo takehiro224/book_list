@@ -68,7 +68,7 @@ class DatabaseAccess {
         return $stmt->execute($param);
     }
 
-    public static function update(string $title, string $isbn, int $price, string $author, string $publisher_name, string $created, string $id) {
+    public static function update(string $title, string $isbn, int $price, string $author, string $publisher_name, string $created, int $id) {
         $sql = "UPDATE books SET title = :title,isbn = :isbn,price = :price,author = :author,publisher_name = :publisher_name,created = :created 
         WHERE id = :id;";
         
@@ -83,6 +83,7 @@ class DatabaseAccess {
          ];
         
         $stmt = self::getInstance()->prepare($sql);
-        $stmt->execute($param);
+        return $stmt->execute($param);
+        
     }
 }
