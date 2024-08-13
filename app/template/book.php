@@ -21,16 +21,19 @@
         <div id="main">
             <div class="container">
                 <h3 id="title"><p class="fo2">書籍一覧画面</p></h3>
-                <a href="logout.php"><p class="fo0">ログアウト</p></a>
+               <div class="out">
+                <a href="logout.php"><p class="fo4">ログアウト</p></a>
+                 </div>
             </div>
                 <div>
                     <table class="table_design01">
+                      
                         <thead>
                             <tr>
                                 <th><p class="fo3">タイトル</p></th>
                                 <th><p class="fo3">著者</p></th>
                                 <th><p class="fo3">出版社</p></th>
-                                <td>
+                                <td class="button-1">
                                     <form action="/htdocs/form.php" method = "get">
                                         <button class=bu001 type = "submit">登録</button>
                                     </form>
@@ -43,7 +46,7 @@
                                     <td><p class="fo0"><a href=<?php echo "/htdocs/book_detail.php?id=" . $row["id"] ?>><?php echo $row["title"]; ?></a></p></td>
                                     <td><p class="fo0"><?php echo $row["author"]; ?></p></td>
                                     <td><p class="fo0"><?php echo $row["publisher_name"]; ?></p></td>
-                                    <td>
+                                    <td class="button-1">
                                         <button class=bu002 onclick="deleteUser('<?php echo $row["id"]; ?>');">削除</button>
                                     </td>
                                 </tr>

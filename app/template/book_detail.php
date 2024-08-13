@@ -17,37 +17,37 @@
                 </div>
             </h1>
         </div>
-        <div id="main">
+        <div id="main" class="container">
             <h3 id="title"><p class="fo2">詳細画面</p></h3>
             <div>
                 <table border="1">
                     <tr>
-                        <th>タイトル</th>
+                        <th><p class="fo3">タイトル</p> </th>
                         <td><p class="fo0 highlight"><?php echo $data["title"]; ?></p></td>
                     </tr>
                     <tr>
-                        <th>ISBN</th>
+                        <th><p class="fo3">ISBN</p></th>
                         <td><p class="fo0 highlight"><?php echo $data["isbn"]; ?></p></td>
                     </tr>
                     <tr>
-                        <th>著者</th>
+                        <th><p class="fo3">著者</p></th>
                         <td><p class="fo0 highlight"><?php echo $data["author"]; ?></p></td>
                     </tr>
                     <tr>
-                        <th>価格</th>
+                        <th><p class="fo3">価格</p></th>
                         <td><p class="fo0 highlight"><?php echo $data["price"]; ?></p></td>
                     </tr>
                     <tr>
-                        <th>出版社</th>
+                        <th><p class="fo3">出版社</p></th>
                         <td><p class="fo0 highlight"><?php echo $data["publisher_name"]; ?></p></td>
                     </tr>
                     <tr>
-                        <th>発行日</th>
+                        <th><p class="fo3">発行日</p></th>
                         <td><p class="fo0 highlight"><?php echo $data["created"]; ?></p></td>
                     </tr>
                 </table>
             </div>
-            <div>
+            <div class="button-container">
                 <form action="/htdocs/edit.php" method="post" name="detail">
                     <input type="hidden" name="detail" value="<?php echo htmlspecialchars(json_encode($data), ENT_QUOTES, 'UTF-8'); ?>">
                     <button type="submit" class="btn-radius-solid btn--shadow">更新</button>

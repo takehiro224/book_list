@@ -16,8 +16,9 @@
                 </div>
             </h1>
         </div>
-        <div id="main">
+        <div id="main" class="container">
             <h2 id="title"><p class="fo2">登録画面</p></h2>
+            <div class="center">
             <form action="form.php" method="post" >
 
                 <div class="form-group">
@@ -49,10 +50,12 @@
                     <label for="created"><p class="fo3">発行日: </p></label>
                     <input type="datetime-local" name="created">
                 </div>
-
-        <input type ="submit" VALUE="登録" class="button">
-        <input type ="button" onclick="history.back()" VALUE="戻る">
-        </form> 
+                <div class="button-container">
+                    <input type ="submit" VALUE="登録" class="button">
+                    <input type ="button" onclick="history.back()" VALUE="戻る">
+                </div>
+            </form> 
+            </div>
         </div>
                 
     </body>

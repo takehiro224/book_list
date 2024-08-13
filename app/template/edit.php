@@ -16,10 +16,10 @@
                 </div>
             </h1>
         </div>
-        <div id="main">
+        <div id="main" class="container">
             <h3 id="title"><p class="fo2">更新画面</p></h3>
-                <form action="edit.php" method="post">
-
+                <div class="center">
+                    <form action="edit.php" method="post">
                     <div class="form-group">
                         <label for="title"><p class="fo3">タイトル:</p></label>
                         <input type="text" name="title" value="<?php echo $data["title"]; ?>">                                    
@@ -44,12 +44,13 @@
                         <label for="created"><p class="fo3">発行日:</p></label>
                         <input type="datetime-local" name="created" value="<?php echo $data["created"]; ?>">
                     </div>       
-                    <div>                              
+                    <div class="button-container">                             
                         <input type="hidden" name="update" value="<?php echo htmlspecialchars(json_encode($data), ENT_QUOTES, 'UTF-8'); ?>">
                         <input type="submit" value="更新">
                         <input type="button"  value="戻る" onclick="location.href='book_detail.php?id=<?php echo $id ?>'; return false;">   
                     </div> 
                 </form>
+            </div>
         </div>
     </body>
 </html>

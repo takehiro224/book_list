@@ -1,175 +1,283 @@
 /* styles.css */
 
 .fo0 {
-  font-family: "Kiwi Maru", cursive;
-  /* .fo0クラスを持つ要素に対してフォント指定（クラスセレクタ） */
-  /* フォントがインストールされていない場合、cursiveフォントを使用 */
-}
-
-.fo1 {
-  font-family: "Kaisei Tokumin", cursive;
-  font-size: 38px;
-}
-
-.fo2 {
-  font-family: "Kaisei Tokumin", cursive;
-  font-size: 25px;
-}
-
-.fo3 {
-  font-family: "Kaisei Tokumin", cursive;
-  font-size: 20px;
-}
-
-.highlight {
-  position: relative;
-  display: inline;
-  background: linear-gradient(transparent 40%, rgb(187, 225, 255) 40%);
-}
-
-/* 完全一致の属性セレクタ */
-/* type 属性が submit の input 要素にスタイルを適用 */
-/* type 属性が button の input 要素にスタイルを適用 */
-/* class 属性が btn で始まる button 要素にスタイルを適用 */
-input[type="submit"],
-input[type="button"],
-button[class^="btn"] {
-  font-size: 20px;/* フォントサイズを20pxに設定*/
-	display: inline-block;/* 要素をインラインブロックとして表示。要素の幅と高さを設定でき、周囲の要素と同じ行に並ぶ。 */
-	text-align: center;/* テキスト中央揃え */
-	text-decoration: none;/* 装飾なし */
-	width: 100px;/* ボタンの幅 */
-  height: 3rem; /* ボタンの高さ */
-  line-height: 3rem; /* テキストの垂直中央揃え */
-	padding: 0;/* 要素内のパディングを0に設定 */
-	font-weight: bold;/* 太字 */
-	background-color: #71a671;/* 背景色設定 */
-	border-radius: 100vh;/* 角を丸く*/
-	color: #fff;/* テキストの色 */
-	border: 2px solid #fff;/* 枠線の色と幅 */
-	box-shadow: 0 2px 5px rgba(0, 0, 0, .2);/* 影 */
-	transition: 0.5s;  /* 要素のスタイルが変化する際、0.5秒かけてスムーズに移行するように設定 */
-}
-
-input[type="submit"]:hover,
-input[type="button"]:hover,
-button[class^="btn"]:hover {
-	color: #fff;
-	background-image: linear-gradient(to left, #62d19d 0%, #b4e12b 100%);
-}
-
-/* 指定の文字列からはじまる属性セレクタ */
-/* class 属性が bu で始まる button 要素にスタイルを適用 */
-button[class^="bu"] { 
-  font-size: 15px;
-	display: block;
-	text-align: center;
-	text-decoration: none;
-	width: 100px;
-	padding: 0;
-	font-weight: bold;
-	border: 2px solid #71a671;
-	color: #71a671;
-	border-radius: 100vh;
-	transition: 0.5s;
-}
-button[class^="bu"]:hover {
-	color: #fff;
-	background-color: #71a671;
-}
-
-
-.form-group {
-  display: flex; /* 横並びにする */
-  align-items: center; /* 垂直方向の中央揃え */
-  margin-bottom: 10px; /* フォーム項目間のスペース */
-}
-
-.form-group label {
-  width: 120px; /* ラベルの幅を固定 */
-  margin-right: 10px; /* ラベルと入力フィールドの間のスペース */
-  font-size: 16px;
-  text-align: right; /* ラベルのテキストを右揃えに */
-}
-
-input[type="datetime-local"],
-input[type="text"] {
-  flex: 1; /* 入力フィールドが利用可能なスペースを埋める */
-  padding: 10px 15px; /*ボックスを大きくする*/
-  font-size: 16px;
-  border-radius: 3px; /*ボックス角の丸み*/
-  border: 2px solid #ddd; /*枠線*/
-  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-}
-/* 全体のスタイル */
-body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #f0f9f0;
-    margin: 0;
-    padding: 0;
-}
-
-/* ヘッダーのスタイル */
-#header {
-    background-color: #71a671;
-    padding: 15px;
+    font-family: "Kiwi Maru", cursive;
+    /* .fo0クラスを持つ要素に対してフォント指定（クラスセレクタ） */
+    /* フォントがインストールされていない場合、cursiveフォントを使用 */
+  }
+  
+  .fo1 {
+    font-family: "Kaisei Tokumin", cursive;
+    font-size: 38px;
+  }
+  
+  .fo2 {
+    font-family: "Kaisei Tokumin", cursive;
+    font-size: 25px;
+  }
+  
+  .fo3 {
+    font-family: "Kaisei Tokumin", cursive;
+    font-size: 20px;
+  }
+  
+  .highlight {
+    position: relative;
+    display: inline;
+    background: linear-gradient(transparent 40%, rgb(187, 225, 255) 40%);
+  }
+  
+  /* 完全一致の属性セレクタ */
+  /* type 属性が submit の input 要素にスタイルを適用 */
+  /* type 属性が button の input 要素にスタイルを適用 */
+  /* class 属性が btn で始まる button 要素にスタイルを適用 */
+  input[type="submit"],
+  input[type="button"],
+  button[class^="btn"] {
+      background-color: #71a671;/* 背景色設定 */
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px 2px;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  input[type="submit"]:hover,
+  input[type="button"]:hover,
+  button[class^="btn"]:hover {
+      color: #fff;
+      background-image: linear-gradient(to left, #62d19d 0%, #b4e12b 100%);
+  }
+  
+  input[type="submit"]:active,
+  input[type="button"]:active,
+  button[class^="btn"]:active {
+      background-color: #f3c33f;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      transform: translateY(2px);
+      }
+  
+  /* 指定の文字列からはじまる属性セレクタ */
+  /* class 属性が bu で始まる button 要素にスタイルを適用 */
+  button[class="bu001"] { 
+    font-size: 15px;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      width: 100px;
+      padding: 0;
+      font-weight: bold;
+      border: 2px solid #71a671;
+      color: #71a671;
+      border-radius: 100vh;
+      transition: 0.5s;
+    margin: 0 auto;
+  }
+  
+  button[class="bu002"] { 
+      font-size: 15px;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        width: 100px;
+        padding: 0;
+        font-weight: bold;
+        border: 2px solid #FF6633;
+        color: #FF6633;
+        border-radius: 100vh;
+        transition: 0.5s;
+        position: center;
+        margin: 0 auto;
+    }
+  button[class="bu001"]:hover {
+      color: #fff;
+      background-color: #71a671;
+  }
+  
+  button[class^="bu002"]:hover {
+      color: #fff;
+      background-color: #FF6633;
+  }
+  
+  .button-container {
+      text-align: center;
+      margin-top: 20px;
+      }
+  
+  /*== 外の線が伸びる */
+  .fo4 {
+      position: relative; /* 線の基点とするためrelativeを指定 */
+      color: #333;
+      border: 1px solid #333;
+      padding: 10px 30px;
+      display: inline-block;
+      text-decoration: none;
+      outline: none;
+      transition: all 0.3s ease-in-out; /* アニメーションの指定 */
+       margin-right: 0px;
+  }
+   
+  /*hoverした際の背景の形状*/
+  .fo4:hover {
+      background: #333;
+      color: #fff;
+      border-color: transparent;
+  }
+   
+  /*線の設定*/
+  .fo4::before,
+  .fo4::after {
+      content: '';
+      position: absolute; /* 絶対配置で線の位置を決める */
+      border: solid #333;
+      width: 10px;
+      height: 10px;
+      transition: all 0.3s ease-in-out; /* アニメーションの指定 */
+  }
+   
+  /*線の位置と形状*/
+  .fo4::before {
+      top: -6px;
+      left: -6px;
+      border-width: 1px 0 0 1px;
+  }
+   
+  .fo4::after {
+      bottom: -6px;
+      right: -6px;
+      border-width: 0 1px 1px 0;
+  }
+   
+  /*hoverした際の線の形状*/
+  .fo4:hover::before,
+  .fo4:hover::after {
+      width: calc(100% + 11px);
+      height: calc(100% + 11px);
+      border-color: #666;
+  }
+  
+  .out{
+    text-align: right;
+  }
+  
+  .table_design01 td.button-1 {
+      width: 120px; /* 列の幅を指定。必要に応じて調整 */
+      text-align: center; /* ボタンを中央に配置 */
+  }
+  
+  .container {             
     text-align: center;
-}
+  }
+  
+  .form-group {
+    display: flex; /* 横並びにする */
+    align-items: center; /* 垂直方向の中央揃え */
+    margin-bottom: 10px; /* フォーム項目間のスペース */
+  }
+  
+  .form-group label {
+    width: 120px; /* ラベルの幅を固定 */
+    margin-right: 10px; /* ラベルと入力フィールドの間のスペース */
+    font-size: 16px;
+    text-align: right; /* ラベルのテキストを右揃えに */
+  }
 
-#header h1 {
-    margin: 0;
-    font-size: 24px;
-    color: #fff;
-}
-
-#header .clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* メインコンテンツのスタイル */
-#main {
+  .center{
+    display: flex;
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向に中央揃え */
+    min-height: 100vh; /* コンテナが画面の高さを埋めるようにする */
     padding: 20px;
-}
-
-#title {
-    font-size: 22px;
-    color: #2d6a4f;
-    margin-bottom: 20px;
-}
-
-/* テーブルのスタイル */
-table {
+  }
+  
+  input[type="datetime-local"],
+  input[type="text"] {
+    flex: 0.75; /* 入力フィールドが利用可能なスペースを埋める */
+    padding: 10px 15px; /*ボックスを大きくする*/
+    font-size: 16px;
+    border-radius: 3px; /*ボックス角の丸み*/
+    border: 2px solid #ddd; /*枠線*/
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
     width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #d1e7d6;
-    text-align: left;
-}
-
-th {
-    background-color: #71a671;
-    color: #fff;
-}
-
-td {
-    background-color: #fff;
-}
-
-/* フォームのスタイル */
-form {
-    margin: 20px 0;
-}
-
-
- /* button, input[type="button"], input[type="submit"] {
-    background-color: #2d6a4f
- }       */
+  }
+  /* 全体のスタイル */
+  body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background-color: #f0f9f0;
+      margin: 0;
+      padding: 0;
+  }
+  
+  /* ヘッダーのスタイル */
+  #header {
+      background-color: #71a671;
+      padding: 15px;
+      text-align: center;
+  }
+  
+  #header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #fff;
+  }
+  
+  #header .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+  
+  /* メインコンテンツのスタイル */
+  #main {
+      padding: 20px;
+  }
+  
+  #title {
+      font-size: 22px;
+      color: #2d6a4f;
+      margin-bottom: 20px;
+  }
+  
+  /* テーブルのスタイル */
+  table {
+      width: 80%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      margin: 0 auto;
+  }
+  
+  th, td {
+      padding: 10px;
+      border: 1px solid #d1e7d6;
+      text-align: center;
+  }
+  
+  th {
+      background-color: #71a671;
+      color: #fff;
+  }
+  
+  td {
+      background-color: #fff;
+  }
+  
+  /* フォームのスタイル */
+  form {
+      margin: 0px 0;
+  }
+  
+  
+   /* button, input[type="button"], input[type="submit"] {
+      background-color: #2d6a4f
+   }       */
