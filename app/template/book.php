@@ -4,30 +4,35 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
         <title>書籍一覧</title>
         <script src="deleteUser.js"></script> 
+        <!-- フォントのインポート(KiwiMaru) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&family=Kiwi+Maru&family=Monomaniac+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../htdocs/css/style.css">
     </head>
     <body>
         <div id="header">
             <h1>
                 <div class="clearfix">
-                    <div class="fl">書籍管理システム</div>
+                    <div class="fl"><p class="fo1">書籍管理システム</p></div>
                 </div>
             </h1>
         </div>
         <div id="main">
             <div class="container">
-                <h3 id="title">書籍一覧画面</h3>
-                <a href="logout.php">ログアウト</a>
+                <h3 id="title"><p class="fo2">書籍一覧画面</p></h3>
+                <a href="logout.php"><p class="fo0">ログアウト</p></a>
             </div>
                 <div>
                     <table class="table_design01">
                         <thead>
                             <tr>
-                                <th>タイトル</th>
-                                <th>著者</th>
-                                <th>出版社</th>
+                                <th><p class="fo3">タイトル</p></th>
+                                <th><p class="fo3">著者</p></th>
+                                <th><p class="fo3">出版社</p></th>
                                 <td>
                                     <form action="/htdocs/form.php" method = "get">
-                                        <button type = "submit">登録</button>
+                                        <button class=bu001 type = "submit">登録</button>
                                     </form>
                                 </td>
                             </tr>
@@ -35,11 +40,11 @@
                         <tbody>
                             <?php foreach ($data as $row) { ?>
                                 <tr>
-                                    <td><a href=<?php echo "/htdocs/book_detail.php?id=" . $row["id"] ?>><?php echo $row["title"]; ?></a></td>
-                                    <td><?php echo $row["author"]; ?></td>
-                                    <td><?php echo $row["publisher_name"]; ?></td>
+                                    <td><p class="fo0"><a href=<?php echo "/htdocs/book_detail.php?id=" . $row["id"] ?>><?php echo $row["title"]; ?></a></p></td>
+                                    <td><p class="fo0"><?php echo $row["author"]; ?></p></td>
+                                    <td><p class="fo0"><?php echo $row["publisher_name"]; ?></p></td>
                                     <td>
-                                        <button onclick="deleteUser('<?php echo $row["id"]; ?>');">削除</button>
+                                        <button class=bu002 onclick="deleteUser('<?php echo $row["id"]; ?>');">削除</button>
                                     </td>
                                 </tr>
                             <?php } ?>

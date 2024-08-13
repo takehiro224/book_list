@@ -1,0 +1,175 @@
+/* styles.css */
+
+.fo0 {
+  font-family: "Kiwi Maru", cursive;
+  /* .fo0クラスを持つ要素に対してフォント指定（クラスセレクタ） */
+  /* フォントがインストールされていない場合、cursiveフォントを使用 */
+}
+
+.fo1 {
+  font-family: "Kaisei Tokumin", cursive;
+  font-size: 38px;
+}
+
+.fo2 {
+  font-family: "Kaisei Tokumin", cursive;
+  font-size: 25px;
+}
+
+.fo3 {
+  font-family: "Kaisei Tokumin", cursive;
+  font-size: 20px;
+}
+
+.highlight {
+  position: relative;
+  display: inline;
+  background: linear-gradient(transparent 40%, rgb(187, 225, 255) 40%);
+}
+
+/* 完全一致の属性セレクタ */
+/* type 属性が submit の input 要素にスタイルを適用 */
+/* type 属性が button の input 要素にスタイルを適用 */
+/* class 属性が btn で始まる button 要素にスタイルを適用 */
+input[type="submit"],
+input[type="button"],
+button[class^="btn"] {
+  font-size: 20px;/* フォントサイズを20pxに設定*/
+	display: inline-block;/* 要素をインラインブロックとして表示。要素の幅と高さを設定でき、周囲の要素と同じ行に並ぶ。 */
+	text-align: center;/* テキスト中央揃え */
+	text-decoration: none;/* 装飾なし */
+	width: 100px;/* ボタンの幅 */
+  height: 3rem; /* ボタンの高さ */
+  line-height: 3rem; /* テキストの垂直中央揃え */
+	padding: 0;/* 要素内のパディングを0に設定 */
+	font-weight: bold;/* 太字 */
+	background-color: #71a671;/* 背景色設定 */
+	border-radius: 100vh;/* 角を丸く*/
+	color: #fff;/* テキストの色 */
+	border: 2px solid #fff;/* 枠線の色と幅 */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .2);/* 影 */
+	transition: 0.5s;  /* 要素のスタイルが変化する際、0.5秒かけてスムーズに移行するように設定 */
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button[class^="btn"]:hover {
+	color: #fff;
+	background-image: linear-gradient(to left, #62d19d 0%, #b4e12b 100%);
+}
+
+/* 指定の文字列からはじまる属性セレクタ */
+/* class 属性が bu で始まる button 要素にスタイルを適用 */
+button[class^="bu"] { 
+  font-size: 15px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	width: 100px;
+	padding: 0;
+	font-weight: bold;
+	border: 2px solid #71a671;
+	color: #71a671;
+	border-radius: 100vh;
+	transition: 0.5s;
+}
+button[class^="bu"]:hover {
+	color: #fff;
+	background-color: #71a671;
+}
+
+
+.form-group {
+  display: flex; /* 横並びにする */
+  align-items: center; /* 垂直方向の中央揃え */
+  margin-bottom: 10px; /* フォーム項目間のスペース */
+}
+
+.form-group label {
+  width: 120px; /* ラベルの幅を固定 */
+  margin-right: 10px; /* ラベルと入力フィールドの間のスペース */
+  font-size: 16px;
+  text-align: right; /* ラベルのテキストを右揃えに */
+}
+
+input[type="datetime-local"],
+input[type="text"] {
+  flex: 1; /* 入力フィールドが利用可能なスペースを埋める */
+  padding: 10px 15px; /*ボックスを大きくする*/
+  font-size: 16px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+}
+/* 全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f0f9f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* ヘッダーのスタイル */
+#header {
+    background-color: #71a671;
+    padding: 15px;
+    text-align: center;
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #fff;
+}
+
+#header .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* メインコンテンツのスタイル */
+#main {
+    padding: 20px;
+}
+
+#title {
+    font-size: 22px;
+    color: #2d6a4f;
+    margin-bottom: 20px;
+}
+
+/* テーブルのスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #d1e7d6;
+    text-align: left;
+}
+
+th {
+    background-color: #71a671;
+    color: #fff;
+}
+
+td {
+    background-color: #fff;
+}
+
+/* フォームのスタイル */
+form {
+    margin: 20px 0;
+}
+
+
+ /* button, input[type="button"], input[type="submit"] {
+    background-color: #2d6a4f
+ }       */

@@ -6,6 +6,7 @@ require_once(dirname(__DIR__) . "/library/database_access.php");
 if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
     if (isset($_POST['detail'])){
         $data = json_decode($_POST['detail'], true);
+        $id = $data['id'];
         require_once(dirname(__DIR__) . "/template/edit.php");
     }else {
         $data = json_decode($_POST['update'], true);
