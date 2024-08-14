@@ -2,6 +2,8 @@
 declare(strict_types=1);
 
 require_once(dirname(__DIR__) . "/library/database_access.php");
+require_once(dirname(__DIR__) . "/library/logger.php");
+writeLog("【表示】更新画面");
 
 if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
     if (isset($_POST['detail'])){
@@ -20,7 +22,7 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
         $created = $_POST['created'] ?? $data['created'] ?? ''; 
 
         DatabaseAccess::update($title, $isbn, (int)$price, $author, $publisher_name, $created, $id);   
-        
+       
         require_once(dirname(__DIR__) . "/htdocs/book.php");
         }
 }

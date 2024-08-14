@@ -12,7 +12,7 @@
         <div id="header">
             <h1>
                 <div class="clearfix">
-                    <div class="fl"><p class="fo1">書籍管理システム</p></div>
+                    <div class="fl"><p class="fo1"><a href="book.php">書籍管理システム</a></p></div>
                 </div>
             </h1>
         </div>

@@ -192,7 +192,6 @@
   .center{
     display: flex;
     justify-content: center; /* 水平方向に中央揃え */
-    align-items: center; /* 垂直方向に中央揃え */
     min-height: 100vh; /* コンテナが画面の高さを埋めるようにする */
     padding: 20px;
   }

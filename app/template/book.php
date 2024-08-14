@@ -3,11 +3,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
         <title>書籍一覧</title>
-        <script src="deleteUser.js"></script> 
+        <script src="../htdocs/js/book.js" defer></script>
         <!-- フォントのインポート(KiwiMaru) -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&family=Kiwi+Maru&family=Monomaniac+One&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&family=Kiwi+Maru&family=Monomaniac+One&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../htdocs/css/style.css">
     </head>
     <body>
@@ -47,7 +47,7 @@
                                     <td><p class="fo0"><?php echo $row["author"]; ?></p></td>
                                     <td><p class="fo0"><?php echo $row["publisher_name"]; ?></p></td>
                                     <td class="button-1">
-                                        <button class=bu002 onclick="deleteUser('<?php echo $row["id"]; ?>');">削除</button>
+                                        <button class=bu002 onclick="deleteUser('<?php echo $row["id"]; ?>' ,'<?php echo htmlspecialchars($row["title"], ENT_QUOTES, 'UTF-8'); ?>');">削除</button>
                                     </td>
                                 </tr>
                             <?php } ?>
