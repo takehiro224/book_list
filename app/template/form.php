@@ -23,32 +23,32 @@
 
                 <div class="form-group">
                     <label for="title"><p class="fo3">タイトル:</p></label>
-                    <input type="text" name="title" required>
+                    <input type="text" name="title" id="title">
                 </div>
 
                 <div class="form-group">
                     <label for="isbn"><p class="fo3">ISBN:</p></label>
-                    <input type="text" name="isbn" required>
+                    <input type="text" name="isbn" id="isbn">
                 </div>  
 
                 <div class="form-group">  
                     <label for="author"><p class="fo3">著者:</p></label>
-                    <input type="text" name="author" required>
+                    <input type="text" name="author" id="author">
                 </div>
 
                 <div class="form-group">
                     <label for="price"><p class="fo3">価格:</p></label>
-                    <input type="text" name="price" required>
+                    <input type="text" name="price" id="price">
                 </div>
 
                 <div class="form-group">
                     <label for="publisher_name"><p class="fo3">出版社: </p></label>
-                    <input type="text" name="publisher_name">
+                    <input type="text" name="publisher_name" id="publisher_name">
                 </div>
 
                 <div class="form-group">
                     <label for="created"><p class="fo3">発行日: </p></label>
-                    <input type="datetime-local" name="created">
+                    <input type="datetime-local" name="created" id="created">
                 </div>
                 <div class="button-container">
                     <input type ="submit" VALUE="登録" class="button">

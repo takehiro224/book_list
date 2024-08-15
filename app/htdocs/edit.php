@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 require_once(dirname(__DIR__) . "/library/database_access.php");
-require_once(dirname(__DIR__) . "/library/logger.php");
+require_once(dirname(__DIR__) . "/library/common.php");
 writeLog("【表示】更新画面");
 
 if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
@@ -20,10 +20,38 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
         $author = $_POST['author'] ?? $data['author'] ?? '';
         $publisher_name = $_POST['publisher_name'] ?? $data['publisher_name'] ?? '';
         $created = $_POST['created'] ?? $data['created'] ?? ''; 
+        $errors = [];
 
-        DatabaseAccess::update($title, $isbn, (int)$price, $author, $publisher_name, $created, $id);   
-       
-        require_once(dirname(__DIR__) . "/htdocs/book.php");
+        if(!isNotNull($title)){
+            $errors[] = "タイトルは必須です。";
+        } elseif (!isWithinLength($title, 255)){
+            $errors[] = "タイトルは255文字以内で入力してください。";
         }
+        if(!isNotNull($isbn)){
+            $errors[] = "ISBNは必須です。";
+        } elseif (!isWithinLength($isbn, 20)){
+            $errors[] = "ISBNは20文字以内で入力してください。";
+        }
+        if(!isNotNull($price)){
+            $errors[] = "価格は必須です。";
+        } elseif (!isNumeric($price)){
+            $errors[] = "価格は数値で入力してください。";
+        }
+        if(!isNotNull($author)){
+            $errors[] = "著者は必須です。";
+        } elseif (!isWithinLength($author, 255)){
+            $errors[] = "著者は255文字以内で入力してください。";
+        }
+        if(empty($errors)){
+        DatabaseAccess::update($title, $isbn, (int)$price, $author, $publisher_name, $created, $id);   
+        require_once(dirname(__DIR__) . "/htdocs/book.php");
+        } else {
+            foreach($errors as $error){
+                echo "<p style='color: red;'>$error</p>";
+            }
+            require_once(dirname(__DIR__) . "/template/edit.php");
+        }
+       
+    }   
 }
 ?>

@@ -27,6 +27,10 @@
     background: linear-gradient(transparent 40%, rgb(187, 225, 255) 40%);
   }
   
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }
   /* 完全一致の属性セレクタ */
   /* type 属性が submit の input 要素にスタイルを適用 */
   /* type 属性が button の input 要素にスタイルを適用 */
