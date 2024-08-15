@@ -27,9 +27,9 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
             $errors[] = "ISBNは20文字以内で入力してください。";
         }
         if(!isNotNull($price)){
-            $errors[] = "価格は必須です。";
+            $errors[] = "価格は必須です。正の整数で入力してください。";
         } elseif (!isNumeric($price)){
-            $errors[] = "価格は数値で入力してください。";
+            $errors[] = "価格は正の整数で入力してください。";
         }
         if(!isNotNull($author)){
             $errors[] = "著者は必須です。";
@@ -41,7 +41,7 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
             require_once(dirname(__DIR__) . "/htdocs/book.php");
         } else {
             foreach($errors as $error){
-                echo "<p style='color: red;'>$error</p>";
+                echo "<div style='color: red;'>$error</div>";
             }
             require_once(dirname(__DIR__) . "/template/form.php");
         }

@@ -22,8 +22,8 @@
             <form action="form.php" method="post" >
 
                 <div class="form-group">
-                    <label for="title"><p class="fo3">タイトル:</p></label>
-                    <input type="text" name="title" id="title">
+                    <label for="title1"><p class="fo3">タイトル:</p></label>
+                    <input type="text" name="title" id="title1">
                 </div>
 
                 <div class="form-group">

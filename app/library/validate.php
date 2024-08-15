@@ -10,7 +10,8 @@ declare(strict_types=1);
 function isNotNull(string $str): bool {
     // if(!empty($title)){
     // }
-    return !empty($str);
+    // return !empty($str);
+    return $str != '';
 }
 
 /**
@@ -20,7 +21,7 @@ function isNotNull(string $str): bool {
  * @return boolean true: 数値, false: 数値ではない
  */
 function isNumeric(string $str): bool {
-    return is_numeric($str);
+    return is_numeric($str) && intval($str) == $str && $str > 0;
 }
 
 /**
