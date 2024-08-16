@@ -95,4 +95,34 @@ class DatabaseAccess {
         return $stmt->execute($param);
         
     }
+
+public static function getUserByUsername(string $username) {
+
+    $sql = "SELECT * FROM users WHERE username = :username";
+
+    $stmt = self::getInstance()->prepare($sql);
+
+    $stmt->execute(['username' => $username]);
+
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+
+}
+ 
+public static function registerUser(string $username, string $hashedPassword) {
+
+    $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+
+    $stmt = self::getInstance()->prepare($sql);
+
+    return $stmt->execute([
+
+        'username' => $username,
+
+        'password' => $hashedPassword
+
+    ]);
+
+}
+
+ 
 }
