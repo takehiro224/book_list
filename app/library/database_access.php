@@ -68,10 +68,11 @@ class DatabaseAccess {
         return $stmt->execute($param);
     }
 
-    public static function update(string $title, string $isbn, int $price, string $author, string $publisher_name, string $created, int $id) {
+    public static function update(string $title, string $isbn, int $price, string $author, ?string $publisher_name, ?string $created, int $id) {
         $sql = "UPDATE books SET title = :title,isbn = :isbn,price = :price,author = :author,publisher_name = :publisher_name,created = :created 
         WHERE id = :id;";
-        
+        // var_dump($created);
+        // exit();
          $param = [
             'title' => $title,
             'isbn' => $isbn,
@@ -81,8 +82,16 @@ class DatabaseAccess {
             'created' => $created,
             'id' => $id
          ];
-        
         $stmt = self::getInstance()->prepare($sql);
+
+        // foreach ($param as $key => $created) {
+        //     if ($created === null) {
+        //         $stmt->bindValue(':'.$key, null, PDO::PARAM_NULL);
+        //     } else {
+        //         $stmt->bindValue(':'.$key, $created);
+        //     }
+        // }
+
         return $stmt->execute($param);
         
     }

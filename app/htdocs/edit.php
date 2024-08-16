@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 
-require_once(dirname(__DIR__) . "/library/database_access.php");
 require_once(dirname(__DIR__) . "/library/common.php");
 writeLog("【表示】更新画面");
 
@@ -9,7 +8,19 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
     if (isset($_POST['detail'])){
         $data = json_decode($_POST['detail'], true);
         $id = $data['id'];
+        // 
+        // exit();
+//追加
+        if (!empty($data['created'])){
+        // DateTimeオブジェクトを作成し、指定された日時文字列を解析する
+        $dateTime = new DateTime($data['created']);
+        // date()関数を使用して、datetime-local形式の文字列に変換する
+        $formattedDateTime = $dateTime->format('Y-m-d\TH:i');
         require_once(dirname(__DIR__) . "/template/edit.php");
+        }else{
+
+            require_once(dirname(__DIR__) . "/template/edit.php");
+        }
     }else {
         $data = json_decode($_POST['update'], true);
 
@@ -21,7 +32,14 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
         $publisher_name = $_POST['publisher_name'] ?? $data['publisher_name'] ?? '';
         $created = $_POST['created'] ?? $data['created'] ?? ''; 
         $errors = [];
-
+        if (!empty($created)){
+            // DateTimeオブジェクトを作成し、指定された日時文字列を解析する
+            $dateTime = new DateTime($created);
+            // date()関数を使用して、datetime-local形式の文字列に変換する
+            $formattedDateTime = $dateTime->format('Y-m-d\TH:i');
+        }else{
+            $formattedDateTime = null;
+        }
         if(!isNotNull($title)){
             $errors[] = "タイトルは必須です。";
         } elseif (!isWithinLength($title, 255)){
@@ -43,8 +61,12 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
             $errors[] = "著者は255文字以内で入力してください。";
         }
         if(empty($errors)){
-        DatabaseAccess::update($title, $isbn, (int)$price, $author, $publisher_name, $created, $id);   
+            // var_dump($created);
+            // exit();
+        DatabaseAccess::update($title, $isbn, (int)$price, $author, $publisher_name, $formattedDateTime, $id);          
+
         require_once(dirname(__DIR__) . "/htdocs/book.php");
+                
         } else {
             foreach($errors as $error){
                 echo "<p style='color: red;'>$error</p>";

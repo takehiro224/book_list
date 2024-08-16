@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once(dirname(__DIR__) . "/library/database_access.php");
-require_once(dirname(__DIR__) . "/library/logger.php");
+require_once(dirname(__DIR__) . "/library/common.php");
 
 writeLog("データベース接続しました");
 
