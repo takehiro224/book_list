@@ -40,6 +40,7 @@ if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
     }
 }
  
+
 // エラーメッセージの表示
 if (!empty($errors)) {
     foreach ($errors as $error) {
