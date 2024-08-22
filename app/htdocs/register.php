@@ -5,7 +5,8 @@ require_once(dirname(__DIR__) . "/library/common.php");
  
 $errors = []; // エラーを格納する配列
 $results = []; // 結果メッセージを格納する配列
- 
+$successMessage = '';
+
 if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -33,10 +34,17 @@ if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $result = DatabaseAccess::registerUser($username, $hashedPassword);
         if ($result) {
-            $results[] = "ユーザー登録が完了しました。<a href='login.php'>ログイン</a>";
+            ob_start();
+            echo "<p> ユーザー登録が完了しました。ログイン画面に移動します。</p>";
+            // $successMessage = "ユーザー登録が完了しました。ログイン画面に移動します。";
+            // 登録成功メッセージを表示し、一定時間後にログイン画面へリダイレクト
+            header("Refresh: 1; url=login.php");
+            ob_end_flush();
+            exit;
         } else {
-            $errors[] = "ユーザー登録に失敗しました。";
+            $error1 = "ユーザー登録に失敗しました。";
         }
+    
     }
 }
  
@@ -54,6 +62,10 @@ if (!empty($results)) {
         echo "<div style='color: green;'>$message</div>";
     }
 }
+// if (!empty($successMessage)) {
+//     echo "<div style='color: green;'>$successMessage</div>";
+//     }
+
  
 // フォームを表示
 require_once(dirname(__DIR__) . "/template/register.php");
