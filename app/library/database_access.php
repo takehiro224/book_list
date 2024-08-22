@@ -124,5 +124,11 @@ public static function registerUser(string $username, string $hashedPassword) {
 
 }
 
- 
+public static function userExists(string $username): bool {
+    $sql = "SELECT COUNT(*) FROM users WHERE username = :username";
+    $stmt = self::getInstance()->prepare($sql);
+    $stmt->execute(['username' => $username]);
+    return $stmt->fetchColumn() > 0;
+}
+
 }

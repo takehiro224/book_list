@@ -1,0 +1,107 @@
+/* 全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f0f9f0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: "Kaisei Tokumin", cursive;
+    font-size: 38px;
+    text-align: center;
+    color: #2d6a4f;
+}
+
+form {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* .form-group{
+    align-items: center;
+} */
+
+label {
+    font-size: 16px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 120px;
+}
+
+ .form-group {
+    display: flex; /* 横並びにする */
+    align-items: center; /* 垂直方向の中央揃え */
+    margin-bottom: 10px; /* フォーム項目間のスペース */
+  }
+ 
+  .form-group label {
+    width: 120px; /* ラベルの幅を固定 */
+    margin-right: 10px; /* ラベルと入力フィールドの間のスペース */
+    font-size: 16px;
+    text-align: right; /* ラベルのテキストを右揃えに */
+  }
+ 
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    width: calc(100% - 140px);
+}
+
+button {
+    background-color: #71a671;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    background-color: #62d19d;
+}
+
+button:active {
+    background-color: #f3c33f;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transform: translateY(2px);
+}
+
+p {
+    text-align: center;
+}
+
+a {
+    color: #71a671;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.center {
+    display: flex;
+    flex-direction: column; /* 縦方向に並べる */
+    align-items: center; /* 横方向に中央揃え */
+    justify-content: flex-start; /* 上部に配置 */
+    min-height: 100vh; /* コンテナが画面の高さを埋めるようにする */
+    padding: 20px;
+}
