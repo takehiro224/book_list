@@ -4,8 +4,7 @@ declare(strict_types=1);
 require_once(dirname(__DIR__) . "/library/common.php");
  
 $errors = []; // エラーを格納する配列
-$results = []; // 結果メッセージを格納する配列
-$successMessage = '';
+
 
 if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
     $username = $_POST['username'] ?? '';
@@ -36,7 +35,6 @@ if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
         if ($result) {
             ob_start();
             echo "<p> ユーザー登録が完了しました。ログイン画面に移動します。</p>";
-            // $successMessage = "ユーザー登録が完了しました。ログイン画面に移動します。";
             // 登録成功メッセージを表示し、一定時間後にログイン画面へリダイレクト
             header("Refresh: 1; url=login.php");
             ob_end_flush();
@@ -55,18 +53,7 @@ if (!empty($errors)) {
         echo "<div style='color: red;'>$error</div>";
     }
 }
- 
-// 成功メッセージの表示
-if (!empty($results)) {
-    foreach ($results as $message) {
-        echo "<div style='color: green;'>$message</div>";
-    }
-}
-// if (!empty($successMessage)) {
-//     echo "<div style='color: green;'>$successMessage</div>";
-//     }
-
- 
+  
 // フォームを表示
 require_once(dirname(__DIR__) . "/template/register.php");
  

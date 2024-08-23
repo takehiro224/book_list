@@ -24,6 +24,21 @@ if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $isAuthenticated = true;
+
+        // セキュアなクッキーを設定する
+    setcookie(
+        'secure_cookie', 
+        'secure_value', 
+        [
+            'expires' => time() + 3600, // 有効期限
+            'path' => '/', // パス
+            'domain' => 'localhost', // ドメイン
+            'secure' => true, // HTTPSでのみ送信
+            'httponly' => true, // JavaScriptからアクセス不可
+            'samesite' => 'Strict' // クロスサイトリクエストを防ぐ
+        ]
+    );
+
         } else {
             $error1 = "ユーザー名またはパスワードが間違っています。";
             echo "<div style='color: red;'>$error1</div>";
