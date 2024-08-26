@@ -7,25 +7,35 @@ declare(strict_types=1);
      *
      * @return void
      */
-    public static function start(): void {
-        $cookieParams = [
-            'lifetime' => 3600,
-            'path' => '/',
-            'domain' => '',
-            'secure' => true,
-            'httponly' => true,
-            'samesite' => 'Lax'
-        ];
- 
-        session_set_cookie_params($cookieParams);
-        session_start();
- 
+    public static function start(): void
+    {
+        // セッションがすでに開始されている場合は、再度開始する必要はない
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            // セッションのクッキー設定
+            $cookieParams = [
+                'lifetime' => 3600,  // クッキーの有効期限（秒）
+                'path' => '/',
+                'domain' => '',
+                'secure' => true,  // HTTPSを使用する場合はtrue
+                'httponly' => true,  // JavaScriptからクッキーにアクセスできないようにする
+                'samesite' => 'Lax'  // クロスサイトリクエストフォージェリ（CSRF）対策
+            ];
+            
+            // セッションのクッキー設定を適用
+            session_set_cookie_params($cookieParams);
+
+            // セッションの開始
+            session_start();
+        }
+
         // セッションIDの再生成
         session_regenerate_id(true);
- 
+        
         // セッションの有効期限を確認
         self::checkSessionTimeout();
     }
+ 
+
  
     /**
      * セッションの有効期限を確認し、期限が切れた場合はログインページにリダイレクトします。
