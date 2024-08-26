@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
-// session_start();
 
+require_once(dirname(__DIR__) . "/library/session_start.php");
 require_once(dirname(__DIR__) . "/library/common.php");
 
 $error1;
@@ -20,38 +20,17 @@ if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
         echo "<div style='color: red;'>$error1</div>";
         // exit;
     }else{
+            // 認証処理
         $user = DatabaseAccess::getUserByUsername($username);
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $isAuthenticated = true;
 
-        // セキュアなクッキーを設定する
-            // setcookie(
-            //     'secure_cookie', 
-            //     'secure_value', 
-            //     [
-            //         'expires' => time() + 3600, // 有効期限
-            //         'path' => '/', // パス
-            //         'domain' => 'localhost', // ドメイン
-            //         'secure' => true, // HTTPSでのみ送信
-            //         'httponly' => true, // JavaScriptからアクセス不可
-            //         'samesite' => 'Strict' // クロスサイトリクエストを防ぐ
-            //     ]
-            // );
-            // セッションIDのクッキーをセッションクッキーとして設定
-            // setcookie(session_name(), session_id(), 0, '/');
-
         } else {
             $error1 = "ユーザー名またはパスワードが間違っています。";
             echo "<div style='color: red;'>$error1</div>";
         }
-
-
-    }
-       
-    // 認証処理
-    
-    
+    }   
 }
 
 // ログイン成功後にリダイレクト

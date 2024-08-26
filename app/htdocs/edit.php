@@ -2,6 +2,7 @@
 declare(strict_types=1);
 require_once(dirname(__DIR__) . "/library/session_start.php");
 require_once(dirname(__DIR__) . "/library/common.php");
+require_once(dirname(__DIR__) . "/library/session.php");
 writeLog("【表示】更新画面");
 
 if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {

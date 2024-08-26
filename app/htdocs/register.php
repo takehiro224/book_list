@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
  
+require_once(dirname(__DIR__) . "/library/session_start.php");
 require_once(dirname(__DIR__) . "/library/common.php");
  
 $errors = []; // エラーを格納する配列
