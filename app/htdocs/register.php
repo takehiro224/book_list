@@ -1,10 +1,11 @@
 <?php
 declare(strict_types=1);
  
-require_once(dirname(__DIR__) . "/library/session_start.php");
 require_once(dirname(__DIR__) . "/library/common.php");
  
 $errors = []; // エラーを格納する配列
+
+sessionManager::start();
 
 
 if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
@@ -41,7 +42,7 @@ if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
             ob_end_flush();
             exit;
         } else {
-            $error1 = "ユーザー登録に失敗しました。";
+            $errors[] = "ユーザー登録に失敗しました。";
         }
     
     }
