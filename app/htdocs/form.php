@@ -42,10 +42,11 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
         if(empty($errors)){
             DatabaseAccess::insert($title, $isbn, (int)$price, $author, $publisher_name, $created);
             require_once(dirname(__DIR__) . "/htdocs/book.php");
-        } else {
-            foreach($errors as $error){
-                echo "<div style='color: red;'>$error</div>";
-            }
+        }
+         else {
+        //     foreach($errors as $error){
+        //         echo "<div style='color: red;'>$error</div>";
+        //     }
             require_once(dirname(__DIR__) . "/template/form.php");
         }
         

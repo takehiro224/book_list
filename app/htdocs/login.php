@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
+session_start();
 
 require_once(dirname(__DIR__) . "/library/common.php");
 
-sessionManager::start();
+$errors;
 
-$error;
 
 // 認証が成功しているかどうかをチェックするフラグ
 $isAuthenticated = false;
@@ -16,26 +16,26 @@ if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
 
     // フォームの入力チェック
     if (!isNotNull($username) || !isNotNull($password)) {
-        $error = "パスワードまたはユーザー名が不正です。";
-
+        $errors = "パスワードまたはユーザー名が不正です。";
+        // echo "<div style='color: red;'>$error1</div>";
+        // exit;
     }else{
-            // 認証処理
         $user = DatabaseAccess::getUserByUsername($username);
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $isAuthenticated = true;
-
         } else {
-            $error = "ユーザー名またはパスワードが間違っています。";
+            $errors = "ユーザー名またはパスワードが間違っています。";
+            // echo "<div style='color: red;'>$error1</div>";
         }
-    }   
-}
-     // エラーメッセージの表示
-     if (!empty($error)) {
-            echo "<div style='color: red;'>$error</div>";
+
+
     }
-
-
+       
+    // 認証処理
+    
+    
+}
 
 // ログイン成功後にリダイレクト
 if ($isAuthenticated) {

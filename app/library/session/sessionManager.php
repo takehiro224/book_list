@@ -48,7 +48,7 @@ declare(strict_types=1);
             session_unset();
             session_destroy();
             header("Location: login.php");
-            exit();
+            // exit();
         }
  
         // 最後のアクティブな時間を更新
@@ -63,7 +63,7 @@ declare(strict_types=1);
     public static function checkUserLoggedIn(): void {
         if (!isset($_SESSION['user_id'])) {
             header("Location: login.php");
-            exit();
+            // exit();
         }
     }
     }

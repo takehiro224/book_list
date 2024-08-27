@@ -21,6 +21,11 @@
             <label for="password">パスワード:</label>
             <input type="password" id="password" name="password" >
         </div>
+        <?php if (!empty($errors)): ?>
+            <div>
+               <p  class="error"><?php echo htmlspecialchars($errors, ENT_QUOTES); ?></p>
+            </div>
+        <?php endif; ?>
         <button type="submit">ログイン</button>
     </form>
     <p>新規ユーザーですか？ <a href="register.php">新規登録</a></p>

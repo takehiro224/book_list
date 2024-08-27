@@ -50,6 +50,15 @@
                     <label for="created"><p class="fo3">発行日: </p></label>
                     <input type="datetime-local" name="created" id="created">
                 </div>
+
+                <?php if (!empty($errors)): ?>
+                    <div style='color: red;'>
+                        <?php foreach ($errors as $error): ?>
+                            <div><?php echo htmlspecialchars($error, ENT_QUOTES); ?></div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+                
                 <div class="button-container">
                     <input type ="submit" VALUE="登録" class="button">
                     <input type ="button" onclick="history.back()" VALUE="戻る">

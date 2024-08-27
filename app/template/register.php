@@ -21,6 +21,13 @@
             <label for="password">パスワード:</label>
             <input type="password" id="password" name="password" >
         </div>
+        <?php if (!empty($errors)): ?>
+            <div style='color: red;'>
+                <?php foreach ($errors as $error): ?>
+                    <div><?php echo htmlspecialchars($error, ENT_QUOTES); ?></div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
         <button type="submit">登録</button>
     </form>
     <p>既にアカウントがありますか？ <a href="login.php">ログイン</a></p>

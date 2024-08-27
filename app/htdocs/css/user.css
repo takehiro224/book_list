@@ -104,4 +104,9 @@ a:hover {
     justify-content: flex-start; /* 上部に配置 */
     min-height: 100vh; /* コンテナが画面の高さを埋めるようにする */
     padding: 20px;
+    text-align: center;
+}
+
+p[class] {
+    color: #ff0000;
 }

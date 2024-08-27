@@ -51,9 +51,10 @@ if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
 
 // エラーメッセージの表示
 if (!empty($errors)) {
-    foreach ($errors as $error) {
-        echo "<div style='color: red;'>$error</div>";
-    }
+    require_once(dirname(__DIR__) . "/template/register.php");
+    // foreach ($errors as $error) {
+    //     echo "<div style='color: red;'>$error</div>";
+    // }
 }
   
 // フォームを表示
