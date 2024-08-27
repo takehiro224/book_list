@@ -8,9 +8,6 @@ declare(strict_types=1);
  * @return boolean true: OK, false: 未入力
  */
 function isNotNull(string $str): bool {
-    // if(!empty($title)){
-    // }
-    // return !empty($str);
     return $str != '';
 }
 
@@ -20,15 +17,8 @@ function isNotNull(string $str): bool {
  * @param string $str 被判定文字列
  * @return boolean true: 数値, false: 数値ではない
  */
-// function isNumeric(string $str): bool {
-//     return is_numeric($str) && intval($str) == $str && $str > 0;//動くのこれ？
-// }
-
-function isNumeric(string $str): bool {
-    if (preg_match('/\A[0-9]+\z/', $str)) {
-        return true;
-    }
-    return false;
+function isNumeric(string $str): bool { 
+    return preg_match('/^\d+$/', $str);
 }
 
 /**

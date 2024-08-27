@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>新規登録</title>
+    <meta charset="UTF-8">
+    <title>新規登録</title>
         <!-- フォントのインポート(KiwiMaru) -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&family=Kiwi+Maru&family=Monomaniac+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&family=Kiwi+Maru&family=Monomaniac+One&display=swap">
         <link rel="stylesheet" href="../htdocs/css/user.css">
   </head>
 <body>
@@ -22,9 +21,9 @@
             <input type="password" id="password" name="password" >
         </div>
         <?php if (!empty($errors)): ?>
-            <div style='color: red;'>
+            <div>
                 <?php foreach ($errors as $error): ?>
-                    <div><?php echo htmlspecialchars($error, ENT_QUOTES); ?></div>
+                    <p class="error"><?php echo htmlspecialchars($error, ENT_QUOTES); ?></p>
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
