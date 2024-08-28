@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; /*水平センター寄せ*/
+    align-items: center; /*垂直センター寄せ*/
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    border-radius: 8px;
+}
+
+.tab {
+    display: flex;
+    justify-content: space-around; /* 水平等間隔 */
+    margin-bottom: 20px;
+}
+
+.tab button {
+    background-color: #f1f1f1;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/*選択されているタブボタンの色*/
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+}
+
+.tabcontent h2 {
+    margin-top: 0;
+}
+
+/*登録表示部を縦に*/
+.tabcontent form {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabcontent label {
+    margin: 10px 0 5px;
+}
+
+.tabcontent input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.tabcontent button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tabcontent button:hover {
+    background-color: #218838;
+}

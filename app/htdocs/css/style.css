@@ -1,0 +1,61 @@
+/* 
+ディレクティブ
+このCSSファイルがUTF-8エンコーディングで書かれていることを指定 
+ファイルがUTF-8エンコーディングであることを明示的に宣言
+*/
+@charset "utf-8";
+
+/* リンクのデフォルトの色 */
+a {
+    color: blue;
+    /* text-decoration: underline wavy; */
+    text-decoration: none;
+}
+
+.fl {
+    background-color: #4d9bc1;
+    color: #fff;
+    border-radius: 0.2em;
+    padding: 0.2em;
+}
+
+.table_design01 {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 700px;
+}
+
+.table_design01 th, .table_design01 td {
+    border: 2px solid #fff;
+    background-color: #e6f1f6;
+    padding: 1em;
+}
+
+.table_design01 th {
+    background-color: #4d9bc1;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    /* width: 20%; */
+    /* min-width: 4em; */
+}
+
+.table_design01 th:nth-child(4) {
+    width: 15%;
+}
+
+.function_button {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+.container h3 {
+    margin: 0 10px;
+}
+
+.container a {
+    margin-left: auto;
+}
