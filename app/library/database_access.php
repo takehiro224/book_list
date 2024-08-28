@@ -71,8 +71,6 @@ class DatabaseAccess {
     public static function update(string $title, string $isbn, int $price, string $author, ?string $publisher_name, ?string $created, int $id) {
         $sql = "UPDATE books SET title = :title,isbn = :isbn,price = :price,author = :author,publisher_name = :publisher_name,created = :created 
         WHERE id = :id;";
-        // var_dump($created);
-        // exit();
          $param = [
             'title' => $title,
             'isbn' => $isbn,
@@ -83,40 +81,30 @@ class DatabaseAccess {
             'id' => $id
          ];
         $stmt = self::getInstance()->prepare($sql);
-
-        // foreach ($param as $key => $created) {
-        //     if ($created === null) {
-        //         $stmt->bindValue(':'.$key, null, PDO::PARAM_NULL);
-        //     } else {
-        //         $stmt->bindValue(':'.$key, $created);
-        //     }
-        // }
-
         return $stmt->execute($param);
-        
     }
 
-public static function getUserByUsername(string $username) {
-    $sql = "SELECT * FROM users WHERE username = :username";
-    $stmt = self::getInstance()->prepare($sql);
-    $stmt->execute(['username' => $username]);
-    return $stmt->fetch(PDO::FETCH_ASSOC);
-}
- 
-public static function registerUser(string $username, string $hashedPassword) {
-    $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
-    $stmt = self::getInstance()->prepare($sql);
-    return $stmt->execute([
-        'username' => $username,
-        'password' => $hashedPassword
-    ]);
-}
+    public static function getUserByUsername(string $username) {
+        $sql = "SELECT * FROM users WHERE username = :username";
+        $stmt = self::getInstance()->prepare($sql);
+        $stmt->execute(['username' => $username]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    public static function registerUser(string $username, string $hashedPassword) {
+        $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+        $stmt = self::getInstance()->prepare($sql);
+        return $stmt->execute([
+            'username' => $username,
+            'password' => $hashedPassword
+        ]);
+    }
 
-public static function userExists(string $username): bool {
-    $sql = "SELECT COUNT(*) FROM users WHERE username = :username";
-    $stmt = self::getInstance()->prepare($sql);
-    $stmt->execute(['username' => $username]);
-    return $stmt->fetchColumn() > 0;
-}
+    public static function userExists(string $username): bool {
+        $sql = "SELECT COUNT(*) FROM users WHERE username = :username";
+        $stmt = self::getInstance()->prepare($sql);
+        $stmt->execute(['username' => $username]);
+        return $stmt->fetchColumn() > 0;
+    }
 
 }

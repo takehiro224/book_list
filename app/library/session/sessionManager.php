@@ -35,22 +35,18 @@ declare(strict_types=1);
         self::checkSessionTimeout();
     }
  
-
- 
     /**
      * セッションの有効期限を確認し、期限が切れた場合はログインページにリダイレクトします。
      *
      * @return void
      */
-    public static function checkSessionTimeout(): void {
+    private static function checkSessionTimeout(): void {
         if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > 3600) {
             // セッションの有効期限が切れた場合
             session_unset();
             session_destroy();
             header("Location: login.php");
-            // exit();
         }
- 
         // 最後のアクティブな時間を更新
         $_SESSION['last_activity'] = time();
     }
@@ -63,8 +59,7 @@ declare(strict_types=1);
     public static function checkUserLoggedIn(): void {
         if (!isset($_SESSION['user_id'])) {
             header("Location: login.php");
-            // exit();
         }
     }
-    }
+}
 ?>

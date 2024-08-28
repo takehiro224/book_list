@@ -6,7 +6,6 @@ require_once(dirname(__DIR__) . "/library/common.php");
 
 $errors;
 
-
 // 認証が成功しているかどうかをチェックするフラグ
 $isAuthenticated = false;
 
@@ -17,8 +16,6 @@ if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
     // フォームの入力チェック
     if (!isNotNull($username) || !isNotNull($password)) {
         $errors = "パスワードまたはユーザー名が不正です。";
-        // echo "<div style='color: red;'>$error1</div>";
-        // exit;
     }else{
         $user = DatabaseAccess::getUserByUsername($username);
         if ($user && password_verify($password, $user['password'])) {
@@ -26,15 +23,8 @@ if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
             $isAuthenticated = true;
         } else {
             $errors = "ユーザー名またはパスワードが間違っています。";
-            // echo "<div style='color: red;'>$error1</div>";
         }
-
-
     }
-       
-    // 認証処理
-    
-    
 }
 
 // ログイン成功後にリダイレクト

@@ -1,16 +1,16 @@
 <?php
-    declare(strict_types=1);
-    require_once(dirname(__DIR__) . "/library/common.php");
+declare(strict_types=1);
+require_once(dirname(__DIR__) . "/library/common.php");
 
-    sessionManager::start();
+writeLog("【表示】詳細画面");
 
-    sessionManager::checkUserLoggedIn();
-    sessionManager::checkSessionTimeout();
+sessionManager::start();
 
-    writeLog("【表示】詳細画面");
-    $id = $_GET ['id'] ?? '';
-    $data = DatabaseAccess::fetchBy($id);
-   
-    require_once(dirname(__DIR__) . "/template/book_detail.php");
+sessionManager::checkUserLoggedIn();
+
+$id = $_GET ['id'] ?? '';
+$data = DatabaseAccess::fetchBy($id);
+
+require_once(dirname(__DIR__) . "/template/book_detail.php");
     
 ?>

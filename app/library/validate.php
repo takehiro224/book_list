@@ -18,7 +18,7 @@ function isNotNull(string $str): bool {
  * @return boolean true: 数値, false: 数値ではない
  */
 function isNumeric(string $str): bool { 
-    return preg_match('/^\d+$/', $str);
+    return preg_match('/^\d+$/', $str) ===1 ;
 }
 
 /**

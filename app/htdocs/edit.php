@@ -7,26 +7,22 @@ writeLog("【表示】更新画面");
 sessionManager::start();
 
 sessionManager::checkUserLoggedIn();
-sessionManager::checkSessionTimeout();
 
 if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
     if (isset($_POST['detail'])){
         $data = json_decode($_POST['detail'], true);
         $id = $data['id'];
-        // 
-        // exit();
-//追加
+
         if (!empty($data['created'])){
         // DateTimeオブジェクトを作成し、指定された日時文字列を解析する
-        $dateTime = new DateTime($data['created']);
-        // date()関数を使用して、datetime-local形式の文字列に変換する
-        $formattedDateTime = $dateTime->format('Y-m-d\TH:i');
-        require_once(dirname(__DIR__) . "/template/edit.php");
+            $dateTime = new DateTime($data['created']);
+            // date()関数を使用して、datetime-local形式の文字列に変換する
+            $formattedDateTime = $dateTime->format('Y-m-d\TH:i');
+            require_once(dirname(__DIR__) . "/template/edit.php");
         }else{
-
             require_once(dirname(__DIR__) . "/template/edit.php");
         }
-    }else {
+    }else{
         $data = json_decode($_POST['update'], true);
 
         $id = $data['id'] ?? '';
@@ -66,19 +62,11 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
             $errors[] = "著者は255文字以内で入力してください。";
         }
         if(empty($errors)){
-            // var_dump($created);
-            // exit();
-        DatabaseAccess::update($title, $isbn, (int)$price, $author, $publisher_name, $formattedDateTime, $id);          
-
-        require_once(dirname(__DIR__) . "/htdocs/book.php");
-                
+            DatabaseAccess::update($title, $isbn, (int)$price, $author, $publisher_name, $formattedDateTime, $id);          
+            require_once(dirname(__DIR__) . "/htdocs/book.php");
         } else {
-            // foreach($errors as $error){
-            //     echo "<p style='color: red;'>$error</p>";
-            // }
             require_once(dirname(__DIR__) . "/template/edit.php");
         }
-       
     }   
 }
 ?>

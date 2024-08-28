@@ -7,7 +7,6 @@ $errors = []; // エラーを格納する配列
 
 sessionManager::start();
 
-
 if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -44,20 +43,14 @@ if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
         } else {
             $errors[] = "ユーザー登録に失敗しました。";
         }
-    
     }
 }
  
-
-// エラーメッセージの表示
-if (!empty($errors)) {
+    // エラーメッセージの表示
+    if (!empty($errors)) {
+        require_once(dirname(__DIR__) . "/template/register.php");
+    }
+    // フォームを表示
     require_once(dirname(__DIR__) . "/template/register.php");
-    // foreach ($errors as $error) {
-    //     echo "<div style='color: red;'>$error</div>";
-    // }
-}
-  
-// フォームを表示
-require_once(dirname(__DIR__) . "/template/register.php");
  
 ?>

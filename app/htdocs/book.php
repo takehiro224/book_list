@@ -7,7 +7,7 @@ writeLog("データベース接続しました");
 sessionManager::start();
 
 sessionManager::checkUserLoggedIn();
-sessionManager::checkSessionTimeout();
+
 if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
     if (isset($_POST['delete'])){
         $id = $_POST['id'] ?? '';
@@ -22,8 +22,7 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
 }
 
 $data = DatabaseAccess::fetchAll();
-writeLog("【表示】一覧画面");
 require_once(dirname(__DIR__) . "/template/book.php");
-
+writeLog("【表示】一覧画面");
 
 ?>

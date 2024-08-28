@@ -6,7 +6,6 @@ writeLog("【表示】登録画面");
 sessionManager::start();
 
 sessionManager::checkUserLoggedIn();
-sessionManager::checkSessionTimeout();
 
 if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
 
@@ -18,7 +17,6 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
         $created = $_POST['created'] ?? '';
         $errors = [];
       
-    //  if(!empty($title) && !empty($isbn) && !empty($price) && !empty($author))
         if(!isNotNull($title)){
             $errors[] = "タイトルは必須です。";
         } elseif (!isWithinLength($title, 255)){
@@ -42,15 +40,10 @@ if(mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
         if(empty($errors)){
             DatabaseAccess::insert($title, $isbn, (int)$price, $author, $publisher_name, $created);
             require_once(dirname(__DIR__) . "/htdocs/book.php");
-        }
-         else {
-        //     foreach($errors as $error){
-        //         echo "<div style='color: red;'>$error</div>";
-        //     }
+        }else{
             require_once(dirname(__DIR__) . "/template/form.php");
         }
-        
-}else {
+}else{
     require_once(dirname(__DIR__) . "/template/form.php");
 }
 ?>
