@@ -17,28 +17,27 @@ services:
     networks:
       - book_list_network
   db:
-    container_name: book_list_php_db_container
-    build:
-      context: ./db
-      dockerfile: Dockerfile
+    container_name: book_list_mysql_db_container
+    image: mysql:8.0.33
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: postgres
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: kisara
+      MYSQL_PASSWORD: kazuma
+      MYSQL_DATABASE: booklist
     ports:
-      - "5434:5432"
+      - "3306:3306"
     networks:
       - book_list_network
     volumes:
       - type: volume
         source: book_list_db_volume
-        target: /var/lib/postgresql/data
+        target: /var/lib/mysql
       - type: bind
         source: ./db/init
         target: /docker-entrypoint-initdb.d
-    command: postgres -c log_destination=stderr -c log_statement=all -c log_connections=on -c log_disconnections=on
-
-
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+  # command: mysqld --log-output=FILE --general-log=1 --general-log-file=/path/to/mysql_general.log --log-bin=/path/to/mysql_bin.log --binlog-format=MIXED
+  # command: mysqld --log-output=FILE --general-log=1 --general-log-file=/var/log/mysql/mysql_general.log --log-bin=/var/log/mysql/mysql_bin.log --binlog-format=MIXED
 networks:
   book_list_network:
 

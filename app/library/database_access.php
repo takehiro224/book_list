@@ -9,8 +9,9 @@ class DatabaseAccess {
 
     private static function getInstance(): PDO {
         if(!isset(self::$pdo)) {
-            $dsn = "pgsql:host=book_list_php_db_container;dbname=postgres";
-            self::$pdo = new PDO($dsn, "root", "root");
+            $dsn = "mysql:host=db;dbname=booklist;charset=utf8mb4";
+            self::$pdo = new PDO($dsn,"kisara","kazuma");
+            self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         return self::$pdo;
     }

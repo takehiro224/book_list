@@ -1,7 +1,7 @@
 <?php declare(strict_types=1); ?>
 <!DOCTYPE html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
         <title>書籍詳細</title>
             <!-- フォントのインポート(KiwiMaru) -->
             <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -6,6 +6,6 @@ RUN apt-get update && apt-get install -y vim libpq-dev
 
 RUN docker-php-ext-install pdo
 
-RUN docker-php-ext-install pdo_pgsql
+RUN docker-php-ext-install pdo_mysql
 
-RUN docker-php-ext-install pgsql
+# RUN docker-php-ext-install mysqli
